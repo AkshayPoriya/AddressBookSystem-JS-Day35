@@ -94,6 +94,7 @@ class Contact {
 }
 
 //UC3 Add Contact
+console.log("\nUC3\n");
 let contacts = new Array();
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email) {
     let contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
@@ -105,8 +106,10 @@ try {
 } catch (e) {
     console.error(e);
 }
+console.log(contacts);
 
 //UC4 Update Contact
+console.log("\nUC4\n");
 function GetContactIndexWithName(firstName, lastName) {
     for (let i = 0; i < contacts.length; i++) {
         if (contacts[i].firstName == firstName && contacts[i].lastName == lastName) {
@@ -117,8 +120,26 @@ function GetContactIndexWithName(firstName, lastName) {
 }
 let indexOfContact = GetContactIndexWithName('Rohit', 'Sharma');
 if (indexOfContact != -1) {
+    console.log('Contacts before update operation: ');
+    console.log(contacts);
     contacts[indexOfContact].firstName = 'Virat';
     contacts[indexOfContact].lastName = 'Kohli';
+    console.log('Contacts after update operation: ');
+    console.log(contacts);
 }
 
+//UC5 Delete Contact
+console.log("\nUC5\n");
+try {
+    AddContact('Yuvraj', 'Singh', 'Mumbai', 'Powai', 'Maharastra', '111222', '9288009922', 'yu.raj@bcci.com');
+} catch (e) {
+    console.error(e);
+}
+function DeleteContact(firstName,lastName){
+    contacts = contacts.filter(obj=>obj.firstName!=firstName && obj.lastName!=lastName);
+}
+console.log('Contacts before delete operation: ');
+console.log(contacts);
+DeleteContact('Yuvraj','Singh');
+console.log('Contacts after delete operation: ');
 console.log(contacts);
