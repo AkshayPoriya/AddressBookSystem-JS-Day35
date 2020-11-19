@@ -97,6 +97,10 @@ class Contact {
 console.log("\nUC3\n");
 let contacts = new Array();
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email) {
+    if(contacts.some(obj=>obj.firstName==firstName && obj.lastName==lastName)){
+        console.log("Contact with firstName: "+firstName+" and lastName: "+lastName+" already exist!");
+        return;
+    }
     let contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
     contacts.push(contact);
 }
@@ -148,3 +152,8 @@ console.log(contacts);
 console.log("\nUC6\n");
 let countOfContact = contacts.reduce((countOfContact, obj) => countOfContact += 1, 0);
 console.log("Number of contacts: " + countOfContact);
+
+//UC7 Ensure no duplicate entry of the contact with same name
+console.log("\nUC7\n");
+AddContact('Shikar', 'Dhawan', 'Haryana', 'Delhi', 'Delhi', '111242', '8887776665', 'shi.khar@dhawn.co.in');
+console.log(contacts);
