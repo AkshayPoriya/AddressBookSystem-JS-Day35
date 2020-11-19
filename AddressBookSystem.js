@@ -97,8 +97,8 @@ class Contact {
 console.log("\nUC3\n");
 let contacts = new Array();
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email) {
-    if(contacts.some(obj=>obj.firstName==firstName && obj.lastName==lastName)){
-        console.log("Contact with firstName: "+firstName+" and lastName: "+lastName+" already exist!");
+    if (contacts.some(obj => obj.firstName == firstName && obj.lastName == lastName)) {
+        console.log("Contact with firstName: " + firstName + " and lastName: " + lastName + " already exist!");
         return;
     }
     let contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
@@ -157,3 +157,20 @@ console.log("Number of contacts: " + countOfContact);
 console.log("\nUC7\n");
 AddContact('Shikar', 'Dhawan', 'Haryana', 'Delhi', 'Delhi', '111242', '8887776665', 'shi.khar@dhawn.co.in');
 console.log(contacts);
+
+//UC8 Check if a person with given name and city or state exist or not
+console.log("\nUC8\n");
+function CheckNameInCity(firstName, lastName, city) {
+    if (contacts.some(obj => obj.firstName == firstName && obj.lastName == lastName && obj.city == city)) {
+        return true;
+    }
+    return false;
+}
+function CheckNameInState(firstName, lastName, state) {
+    if (contacts.some(obj => obj.firstName == firstName && obj.lastName == lastName && obj.state == state)) {
+        return true;
+    }
+    return false;
+}
+console.log(CheckNameInCity("Akshay", "Poriya", "Rohtak"));
+console.log(CheckNameInState("Shikar", "Dhawan", "Delhi"));
