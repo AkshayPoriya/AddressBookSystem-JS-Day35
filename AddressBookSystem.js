@@ -185,3 +185,15 @@ function ViewContactByState(state) {
 }
 ViewContactByCity("Delhi");
 ViewContactByState("Maharastra");
+
+//UC10 Get Number of contacts by city or state
+console.log("\nUC10\n");
+function GetCountByCity(city) {
+    return contacts.filter(obj => obj.city == city).reduce((countOfContact, obj) => countOfContact += 1, 0);
+}
+function GetCountByState(state) {
+    return contacts.filter(obj => obj.state == state).reduce((countOfContact, obj) => countOfContact += 1, 0);
+}
+console.log("Number of contacts belonging to Powai city: " + GetCountByCity("Powai"));
+console.log("Number of contacts belonging to Delhi state: " + GetCountByState("Delhi"));
+console.log("Number of contacts belonging to Rohtak city: " + GetCountByCity("Rohtak"));
