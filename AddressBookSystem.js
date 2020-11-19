@@ -93,6 +93,7 @@ class Contact {
     }
 }
 
+//UC3 Add Contact
 let contacts = new Array();
 function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email) {
     let contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
@@ -104,4 +105,20 @@ try {
 } catch (e) {
     console.error(e);
 }
+
+//UC4 Update Contact
+function GetContactIndexWithName(firstName, lastName) {
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName == firstName && contacts[i].lastName == lastName) {
+            return i;
+        }
+    }
+    return -1;
+}
+let indexOfContact = GetContactIndexWithName('Rohit', 'Sharma');
+if (indexOfContact != -1) {
+    contacts[indexOfContact].firstName = 'Virat';
+    contacts[indexOfContact].lastName = 'Kohli';
+}
+
 console.log(contacts);
