@@ -135,11 +135,16 @@ try {
 } catch (e) {
     console.error(e);
 }
-function DeleteContact(firstName,lastName){
-    contacts = contacts.filter(obj=>obj.firstName!=firstName && obj.lastName!=lastName);
+function DeleteContact(firstName, lastName) {
+    contacts = contacts.filter(obj => obj.firstName != firstName && obj.lastName != lastName);
 }
 console.log('Contacts before delete operation: ');
 console.log(contacts);
-DeleteContact('Yuvraj','Singh');
+DeleteContact('Yuvraj', 'Singh');
 console.log('Contacts after delete operation: ');
 console.log(contacts);
+
+//UC6 Get count of contact
+console.log("\nUC6\n");
+let countOfContact = contacts.reduce((countOfContact, obj) => countOfContact += 1, 0);
+console.log("Number of contacts: " + countOfContact);
