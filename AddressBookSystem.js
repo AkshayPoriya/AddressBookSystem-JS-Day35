@@ -197,3 +197,18 @@ function GetCountByState(state) {
 console.log("Number of contacts belonging to Powai city: " + GetCountByCity("Powai"));
 console.log("Number of contacts belonging to Delhi state: " + GetCountByState("Delhi"));
 console.log("Number of contacts belonging to Rohtak city: " + GetCountByCity("Rohtak"));
+
+//UC11 Sort Contacts by name
+console.log("\nUC11\n");
+function compare(a,b){
+    if((a.firstName+a.lastName)<(b.firstName+b.lastName)){
+        return -1;
+    }else if((a.firstName+a.lastName)>(b.firstName+b.lastName)){
+        return 1;
+    }else return 0;
+}
+function SortContactsByName(){
+    contacts = contacts.sort(compare);
+}
+SortContactsByName();
+console.log(contacts);
