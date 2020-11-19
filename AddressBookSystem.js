@@ -174,3 +174,14 @@ function CheckNameInState(firstName, lastName, state) {
 }
 console.log(CheckNameInCity("Akshay", "Poriya", "Rohtak"));
 console.log(CheckNameInState("Shikar", "Dhawan", "Delhi"));
+
+//UC9 View Person By City or State
+console.log("\nUC9\n");
+function ViewContactByCity(city) {
+    console.log(contacts.filter(obj => obj.city == city));
+}
+function ViewContactByState(state) {
+    console.log(contacts.filter(obj => obj.state == state));
+}
+ViewContactByCity("Delhi");
+ViewContactByState("Maharastra");
