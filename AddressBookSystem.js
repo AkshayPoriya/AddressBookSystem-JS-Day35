@@ -128,6 +128,7 @@ if (indexOfContact != -1) {
     console.log(contacts);
     contacts[indexOfContact].firstName = 'Virat';
     contacts[indexOfContact].lastName = 'Kohli';
+    contacts[indexOfContact].city = 'Banglore';
     console.log('Contacts after update operation: ');
     console.log(contacts);
 }
@@ -200,15 +201,41 @@ console.log("Number of contacts belonging to Rohtak city: " + GetCountByCity("Ro
 
 //UC11 Sort Contacts by name
 console.log("\nUC11\n");
-function compare(a,b){
-    if((a.firstName+a.lastName)<(b.firstName+b.lastName)){
+function compareName(a, b) {
+    if ((a.firstName + a.lastName) < (b.firstName + b.lastName)) {
         return -1;
-    }else if((a.firstName+a.lastName)>(b.firstName+b.lastName)){
+    } else if ((a.firstName + a.lastName) > (b.firstName + b.lastName)) {
         return 1;
-    }else return 0;
+    } else return 0;
 }
-function SortContactsByName(){
-    contacts = contacts.sort(compare);
+console.log(contacts.sort(compareName));
+
+//UC12 Sort contacts by city state or zip
+console.log("\nUC12\n");
+function compareCity(a, b) {
+    if (a.city < b.city) {
+        return -1;
+    } else if (a.city > b.city) {
+        return 1;
+    } else return 0;
 }
-SortContactsByName();
-console.log(contacts);
+function compareState(a, b) {
+    if (a.state < b.state) {
+        return -1;
+    } else if (a.state > b.state) {
+        return 1;
+    } else return 0;
+}
+function compareZip(a, b) {
+    if (a.zip < b.zip) {
+        return -1;
+    } else if (a.zip > b.zip) {
+        return 1;
+    } else return 0;
+}
+console.log("Sort By City");
+console.log(contacts.sort(compareCity));
+console.log("Sort BY State");
+console.log(contacts.sort(compareState));
+console.log("Sort By Zip");
+console.log(contacts.sort(compareZip));
