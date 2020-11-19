@@ -1,4 +1,4 @@
-class AddressBook {
+class Contact {
     constructor(...params) {
         this.firstName = params[0];
         this.lastName = params[1];
@@ -92,3 +92,16 @@ class AddressBook {
         }
     }
 }
+
+let contacts = new Array();
+function AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email) {
+    let contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+    contacts.push(contact);
+}
+try {
+    AddContact('Rohit', 'Sharma', 'Mumbai', 'Powai', 'Maharastra', '111222', '9288009922', 'ro.hit@bcci.com');
+    AddContact('Shikar', 'Dhawan', 'Delhi', 'Delhi', 'Delhi', '111222', '8887776665', 'shi.kar@dhawn.co.in');
+} catch (e) {
+    console.error(e);
+}
+console.log(contacts);
